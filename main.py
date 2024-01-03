@@ -1,10 +1,9 @@
 from flask import Flask, request, render_template, redirect, url_for, flash
 from flask_bcrypt import Bcrypt
-from werkzeug.security import check_password_hash, generate_password_hash
+from flask_login import LoginManager, login_user, logout_user, current_user
 
-from models import db, Work, Character, Terminology, Relationship, Universe, User
+from models import db, User
 from utils import *
-from flask_login import LoginManager, login_user, login_required, logout_user, current_user
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://root:Funnyhaha111@localhost:3306/universe_navigator'
@@ -32,7 +31,7 @@ def register():
             e = 'Username is already taken. Please choose another.'
             return render_template("failure_page.html", failure_message=e)
         hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
-        new_user = User(username=username, password=hashed_password)
+        new_user = User(username, hashed_password)
         db.session.add(new_user)
         db.session.commit()
         flash('Registration successful. You can now log in.')
@@ -399,7 +398,7 @@ def edit_work_route():
         work_id = get_work_id_by_title(work_title)
         field_to_edit = request.form['field_to_edit']
         new_values = request.form['values']
-        edit_data(db.session, work_id, field_to_edit, new_values)
+        edit_data(db.session, table_to_edit, work_id, field_to_edit, new_values)
         success_message = "Edits made successfully."
         return render_template('success_page.html', success_message=success_message)
     works = Work.query.all()
