@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/static/icon.ico">
+    <link href="../static/styles_functions.css" rel="stylesheet">
+    <title>All Relationships</title>
+</head>
+<body>
+<main>
+    <h2>Show all relationships</h2>
+    <form method="get" action="{{ url_for('show_all_relationships_by_universe') }}">
+        <ul class="columns-func">
+            <li><label for="universe_name">Universe Name:</label>
+            <select id="universe_name" name="universe_name" style="width: 200px;" required>
+                <option value=" " selected hidden></option>
+                {% for universe in universes %}
+                    <option value="{{ universe.universe_title }}">{{ universe.universe_title }}</option>
+                {% endfor %}
+            </select>
+        </li></ul>
+        <button type="submit">Show Relationships</button>
+    </form>
+    {% if rels %}
+    <h2>List of relationships:</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Character 1</th>
+                <th>Character 2</th>
+                <th>Relationship Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for rel in rels %}
+            <tr>
+                <td>{{ rel.character1.char_name }}</td>
+                <td>{{ rel.character2.char_name }}</td>
+                <td>{{ rel.relationship_type }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p class="future">No terminology found for the specified characters and relationship type.</p>
+    {% endif %}
+    <button onclick="location.href='/show_all'" type="button">Go back</button>
+</main>
+</body>
+</html>

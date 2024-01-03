@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../static/styles_functions.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/static/icon.ico">
+    <title>Create a Relationship</title>
+</head>
+<body>
+<main>
+    <h2>Create a Relationship</h2>
+    <div class="columns-main">
+    <form method="post" action="/create_relationship">
+        <ul class="columns-func">
+            <li> <label for="universe_name">Universe Name:</label>
+            <select id="universe_name" name="universe_name" style="width: 200px;" required>
+                <option value=" "></option>
+                {% for universe in universes %}
+                    <option value="{{ universe.universe_title }}">{{ universe.universe_title }}</option>
+                {% endfor %}
+            </select>
+            </li>
+        <li><label for="char_1_name">Character 1 Name:</label>
+            <select id="char_1_name" name="char_1_name" style="width: 200px;" required>
+                <option value=" " selected hidden></option>
+                { if character.universe_id = universe
+                {% for character in characters %}
+                    <option value="{{ character.char_name }}">{{ character.char_name }}</option>
+                {% endfor %}
+            </select></li>
+        <li><label for="char_2_name">Character 2 Name:</label>
+            <select id="char_2_name" name="char_2_name" style="width: 200px;" required>
+                <option value=" " selected hidden></option>
+                {% for character in characters %}
+                    <option value="{{ character.char_name }}">{{ character.char_name }}</option>
+                {% endfor %}
+            </select></li>
+        <li><label for="rel_type">Relationship Type:
+            <input list="rel_type" type="text" name="rel_type" required>
+        </label>
+        <datalist id="rel_type">
+            <option value="Romantic"></option>
+            <option value="Friendship"></option>
+            <option value="Enemies"></option>
+            <option value="Other"></option>
+        </datalist>
+        </li>
+        </ul>
+        <button type="submit">Create Relationship</button>
+        <button onclick="location.href='/create'" type="button">Go back to creation</button>
+    </form>
+    </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/static/icon.ico">
+    <link href="../static/styles_functions.css" rel="stylesheet">
+    <title>Delete Universe</title>
+</head>
+<body>
+<main>
+    <h2>Delete Universe</h2>
+    <form method="post" action="/delete_universe">
+        <ul class="columns-func">
+        <li><label for="universe_name">Universe Name:</label>
+            <select id="universe_name" name="universe_name" style="width: 200px;" required>
+                <option value=" " selected hidden></option>
+                {% for universe in universes %}
+                    <option value="{{ universe.universe_title }}">{{ universe.universe_title }}</option>
+                {% endfor %}
+            </select></li>
+        </ul>
+        <button type="submit">Delete Universe</button>
+        <button onclick="location.href='/delete'" type="button">Go back to deletion</button>
+    </form>
+</main>
+</body>
+</html>

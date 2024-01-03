@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../static/styles_functions.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/static/icon.ico">
+    <title>Create Terminology</title>
+</head>
+<body>
+<main>
+    <div class="columns-main">
+    <h2>Add Terminology</h2>
+    <form method="post" action="/create_terminology">
+        <ul class="columns-func">
+        <li> <label for="universe_name">Universe Name:</label>
+             <select id="universe_name" name="universe_name" style="width: 200px;" required>
+                 <option value=" " selected hidden></option>
+                {% for universe in universes %}
+                 <option value="{{ universe.universe_title }}">{{ universe.universe_title }}</option>
+                {% endfor %}
+            </select>
+        </li>
+        <li><label for="term_name">Term Name:</label>
+            <input type="text" id="term_name" name="term_name" autocomplete="off"  required></li>
+        <li><label for="definition">Definition:</label>
+        <br>
+            <textarea id="definition" name="definition" rows="5" required></textarea></li>
+        </ul>
+        <button type="submit">Add Terminology</button>
+        <button onclick="location.href='/create'" type="button">Go back to creation</button>
+    </form>
+    </div>
+</main>
+</body>
+</html>

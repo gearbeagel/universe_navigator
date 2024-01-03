@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="../static/styles_main.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/static/icon.ico">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    <title>Creation</title>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-default">
+    <div class="container">
+    <div class="navbar-header">
+      <p class="navbar-brand">Universe Navigator</p>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/#possible_functions">Possible Functions</a></li>
+        <li><a href='/logout' style="border-left: 1px solid #022F40 !important">Log out</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+</header>
+<main>
+    <div class="container-fluid bg-3 text-center">
+  <h2 class="namings-1">Create Something</h2>
+  <div class="row">
+            <button onclick="location.href='/create_universe'" type="button">Create a Universe</button>
+            <br>
+            <button onclick="location.href='/create_work'" type="button">Create a Work</button>
+            <br>
+            <button onclick="location.href='/create_character'" type="button">Create a Character</button>
+            <br>
+            <button onclick="location.href='/create_terminology'" type="button">Create Terminology</button>
+            <br>
+            <button onclick="location.href='/create_relationship'" type="button">Create a Relationship</button>
+            <br>
+            <button onclick="location.href='/#possible_functions'" type="button">Go back to the main page</button>
+    </div>
+  </div>
+</main>
+</body>
+</html>

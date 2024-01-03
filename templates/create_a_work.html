@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../static/styles_functions.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/static/icon.ico">
+    <title>Create Work</title>
+</head>
+<body>
+<main>
+    <h1>Create Work</h1>
+    <div class="columns-main">
+    <form action="/create_work" method="post">
+        <ul class="columns-func">
+            <li> <label for="universe_name">Universe Name:</label>
+            <select id="universe_name" name="universe_name" style="width: 200px;" required>
+                <option value=" " selected hidden></option>
+                {% for universe in universes %}
+                    <option value="{{ universe.universe_title }}">{{ universe.universe_title }}</option>
+                {% endfor %}
+            </select>
+            </li>
+            <li><label for="work_title">Work Title:</label>
+                <input type="text" id="work_title" name="work_title" required></li>
+            <li><label for="ext_link">External Link:</label>
+                <input type="url" id="ext_link" name="ext_link" required></li>
+        </ul>
+        <button type="submit">Create Work</button>
+        <br>
+        <button onclick="location.href='/create'" type="button">Go back to creation</button>
+    </form>
+    </div>
+</main>
+</body>
+</html>

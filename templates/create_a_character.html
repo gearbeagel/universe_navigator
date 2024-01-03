@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../static/styles_functions.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/static/icon.ico">
+    <title>Create a Character</title>
+</head>
+<body>
+<main>
+    <h2>Create a Character</h2>
+    <div class="columns_main">
+        <form method="post" action="/create_character">
+        <ul class="columns-func">
+        <li><label for="universe_name">Universe Name:</label>
+            <select id="universe_name" name="universe_name" style="width: 200px;" required>
+                <option value=" " selected hidden></option>
+                {% for universe in universes %}
+                    <option value="{{ universe.universe_title }}">{{ universe.universe_title }}</option>
+                {% endfor %}
+            </select>
+        </li>
+
+        <li><label for="char_name">Character Name:</label>
+            <input type="text" id="char_name" name="char_name" required><br></li>
+
+       <li><label for="gender">Gender:
+           <input list="gender" name="gender" required><br>
+        </label>
+        <datalist id="gender">
+            <option value="Male"></option>
+            <option value="Female"></option>
+            <option value="Other"></option>
+            <option value="Unknown"></option>
+        </datalist></li>
+
+        <li><label for="age">Age:</label>
+        <input type="number" id="age" name="age" required></li>
+
+        <li><label for="status">Status:
+        <input list="status" name="status" required><br>
+        </label>
+        <datalist id="status">
+            <option value="Alive"></option>
+            <option value="Dead"></option>
+            <option value="Unknown"></option>
+            <option value="Other"></option>
+        </datalist></li>
+
+        <li><label for="biography">Biography:</label>
+        <br>
+            <textarea id="biography" name="biography" required></textarea></li>
+        </ul>
+            <button type="submit">Create Character</button>
+            <button onclick="location.href='/create'" type="button">Go back to creation</button>
+        </form>
+    </div>
+</main>
+</body>
+</html>

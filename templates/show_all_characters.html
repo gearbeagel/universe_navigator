@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/static/icon.ico">
+    <link href="../static/styles_functions.css" rel="stylesheet">
+    <title>All Characters</title>
+</head>
+<body>
+<main>
+    <h2>Show all characters</h2>
+    <form method="get" action="{{ url_for('show_characters_by_universe') }}">
+        <ul class="columns-func">
+            <li><label for="universe_name">Universe Name:</label>
+            <select id="universe_name" name="universe_name" style="width: 200px;" required>
+                <option value=" " selected hidden></option>
+                {% for universe in universes %}
+                    <option value="{{ universe.universe_title }}">{{ universe.universe_title }}</option>
+                {% endfor %}
+            </select>
+        </li>
+        </ul>
+        <button type="submit">Show Characters</button>
+    </form>
+    {% if characters %}
+    <h2>List of characters</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Age</th>
+            <th>Status</th>
+            <th>Biography</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for character in characters %}
+                <tr>
+                    <th>{{ character.char_name }}</th>
+                    <th>{{ character.gender }}</th>
+                    <th>{{ character.age }}</th>
+                    <th>{{ character.status }}</th>
+                    <th>{{ character.biography }}</th>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+        <p class="future">No characters found for the specified universe.</p>
+    {% endif %}
+    <button onclick="location.href='/show_all'" type="button">Go back</button>
+</main>
+</body>
+</html>

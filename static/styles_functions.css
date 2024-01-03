@@ -1,0 +1,126 @@
+* {
+    font-family: "Roboto Black", sans-serif;
+    box-sizing: border-box;
+    border: none !important;
+}
+
+h2 {
+    font-family: "Roboto Thin", sans-serif;
+    font-size: 30px;
+}
+
+body {
+    text-align: center;
+    color: #183446;
+    background-image: url("bg.png") !important;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin-top: 200px;
+}
+
+.row {
+    display: flex;
+}
+
+table, th, td {
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #022F40 !important;
+    border-collapse: collapse;
+}
+
+.columns_main {
+    padding: 40px;
+    margin: auto;
+    flex: 30%;
+}
+
+.columns-func {
+    font-size: 15px;
+    list-style-type: none;
+    padding: 0 0;
+    margin: 0 auto;
+    width: 350px;
+    background-color: #38aecc;
+    border-radius: 25px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+
+}
+
+li:hover {
+    background-color: #177199;
+}
+
+li:first-child {
+    border-top: 1px solid #022F40;
+    border-top-right-radius: 25px;
+    border-top-left-radius: 25px;
+}
+
+li {
+    padding: 15px 0;
+    border: 1px solid #022F40;
+    border-top: none;
+}
+
+li:last-child {
+    border-top: none;
+    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+}
+
+#li {
+    font-size: 15px;
+    padding: 15px 0;
+    margin: 0 auto;
+    width: 350px;
+    background-color: #38aecc;
+    border-radius: 25px;
+    text-align: center;
+    display: flex;
+    border: 1px solid #022F40;
+    justify-content: center;
+}
+
+button {
+    border: 1px solid #022F40;
+    color: #183446;
+    background-color: #38aecc;
+    margin: 10px;
+    height: 50px;
+    width: 200px;
+    border-radius: 20px;
+}
+
+button:hover{
+    border: none;
+    color: #183446;
+    background-color: #177199;
+    margin: 10px;
+    height: 50px;
+    width: 200px;
+    border-radius: 20px;
+
+}
+
+.future {
+    visibility: hidden;
+}
+
+.container-success .success-message .failure_message {
+    margin: 0 auto !important;
+    justify-content: center !important;
+}
+
+.col-lg-3, .col-lg-offset-2 {
+    margin-top: 60px;
+    margin-right: -20px;
+}
+
+img {
+    max-width: 50%;
+    max-height: 50%;
+}

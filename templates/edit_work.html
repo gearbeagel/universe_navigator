@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../static/styles_functions.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/static/icon.ico">
+    <title>Edit Character</title>
+</head>
+<body>
+<main>
+    <h1>Edit Character</h1>
+    <div class="columns-main">
+        <form action="/edit_work" method="post">
+            <ul class="columns-func">
+                    <li>
+                        <label for="work_title">Work Title:</label>
+                        <select id="work_title" name="work_title" style="width: 200px;" required>
+                            <option value="" selected hidden></option>
+                            {% for work in works %}
+                                <option value="{{ work.work_title }}">
+                                    {{ work.work_title }} ({{ work.universe.universe_title }})
+                                </option>
+                            {% endfor %}
+                        </select>
+                    </li>
+                    <li>
+                        <label for="field_to_edit">Choose parameter to change:</label>
+                        <select id="field_to_edit" name="field_to_edit" required>
+                            <option value=" " selected hidden></option>
+                            <option value="work_title">Work Title</option>
+                            <option value="ext_link">External link</option>
+                        </select>
+                    </li>
+                    <li>
+                        <label for="values">Enter New Values:</label>
+                        <input type="url" id="values" name="values" required>
+                    </li>
+            </ul>
+                <button type="submit">Save Changes</button>
+                <br>
+                <button onclick="location.href='/edit'" type="button">Go back to editing</button>

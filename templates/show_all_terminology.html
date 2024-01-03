@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../static/styles_functions.css" rel="stylesheet">
+    <title>All Terminology</title>
+</head>
+<body>
+<main>
+    <h2>Show all terminology</h2>
+    <form method="get" action="{{ url_for('show_all_terminology_by_universe') }}">
+        <ul class="columns-func">
+        <li><label for="universe_name">Universe Name:</label>
+            <select id="universe_name" name="universe_name" style="width: 200px;" required>
+                <option value=" " selected hidden></option>
+                {% for universe in universes %}
+                    <option value="{{ universe.universe_title }}">{{ universe.universe_title }}</option>
+                {% endfor %}
+            </select>
+        </li>
+        </ul>
+        <br>
+        <button type="submit">Show Terminology</button>
+    </form>
+    {% if terms %}
+    <h2>List of terminology:</h2>
+    <table>
+            <thead>
+                <tr>
+                    <th>Terminology</th>
+                    <th>Definition</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for term in terms %}
+                    <tr>
+                        <td>{{ term.term_name }}</td>
+                        <td>{{ term.definition }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p class="future">No terminology found for the specified universe.</p>
+    {% endif %}
+    <button onclick="location.href='/show_all'" type="button">Go back</button>
+</main>
+</body>
+</html>

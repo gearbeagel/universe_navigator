@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../static/styles_functions.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/static/icon.ico">
+    <title>Registration</title>
+</head>
+<body>
+<main>
+    <h1>Registration</h1>
+    <div class="columns-main">
+    <form action="/register" method="post">
+        <ul class="columns-func">
+          <li><label for="username">Username:</label>
+            <input type="text" id="username" name="username" style="width: 200px;" required>
+          </li>
+          <li><label for="password">Password:</label>
+            <input type="password" id="password" name="password" style="width: 200px;" required>
+          </li>
+        </ul>
+        <button type="submit">Register</button>
+        <br>
+        <button onclick="location.href='/'" type="button">Go back to main</button>
+    </form>
+    </div>
+</main>
+</body>
+</html>

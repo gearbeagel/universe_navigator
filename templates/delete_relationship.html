@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/static/icon.ico">
+    <link href="../static/styles_functions.css" rel="stylesheet">
+    <title>Delete Terminology</title>
+</head>
+<body>
+<main>
+    <h2>Delete Relationship</h2>
+    <form method="post" action="/delete_relationship">
+        <ul class="columns-func">
+            <li><label for="character1_name">Character 1 Name:</label>
+            <select id="character1_name" name="character1_name" style="width: 200px;" required>
+                <option value=" " selected hidden></option>
+                {% for character in characters %}
+                    <option value="{{ character.char_name }}">{{ character.char_name }}</option>
+                {% endfor %}
+            </select></li>
+        <li><label for="character2_name">Character 2 Name:</label>
+            <select id="character2_name" name="character2_name" style="width: 200px;" required>
+                <option value=" "></option>
+                {% for character in characters %}
+                    <option value="{{ character.char_name }}">{{ character.char_name }}</option>
+                {% endfor %}
+            </select></li>
+            <li><label for="rel_type">Relationship Type:
+            <input list="rel_type" type="text" name="rel_type" required>
+            </label>
+                <datalist id="rel_type">
+                <option value="Romantic"></option>
+                <option value="Friendship"></option>
+                <option value="Enemies"></option>
+                <option value="Other"></option>
+            </datalist>
+            </li>
+        </ul>
+        <button type="submit">Delete Relationship</button>
+        <button onclick="location.href='/delete'" type="button">Go back to deletion</button>
+    </form>
+</main>
+</body>
+</html>

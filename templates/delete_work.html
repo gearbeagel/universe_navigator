@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/static/icon.ico">
+    <link href="../static/styles_functions.css" rel="stylesheet">
+    <title>Delete Work</title>
+</head>
+<body>
+<main>
+    <h2>Delete Work</h2>
+    <form method="post" action="/delete_work">
+        <ul class="columns-func">
+        <li><label for="work_title">Work Title:</label>
+            <select id="work_title" name="work_title" style="width: 200px;" required>
+                <option value=" " selected hidden></option>
+                {% for work in works %}
+                    <option value="{{ work.work_title }}">{{ work.work_title }}</option>
+                {% endfor %}
+            </select></li>
+        </ul>
+        <button type="submit">Delete Work</button>
+        <button onclick="location.href='/delete'" type="button">Go back to deletion</button>
+    </form>
+</main>
+</body>
+</html>
